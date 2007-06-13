@@ -1,5 +1,5 @@
 %define name	disksearch
-%define version	1.1.1
+%define version	1.1.3
 
 Name: 	 	%{name}
 Summary: 	Catalog and search tool for removable media
