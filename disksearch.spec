@@ -1,5 +1,5 @@
 %define name	disksearch
-%define version	1.1.3
+%define version	1.2.0
 
 Name: 	 	%{name}
 Summary: 	Catalog and search tool for removable media
@@ -32,12 +32,6 @@ rm -rf $RPM_BUILD_ROOT
 
 %find_lang %name
 
-#menu
-mkdir -p $RPM_BUILD_ROOT%{_menudir}
-cat << EOF > $RPM_BUILD_ROOT%{_menudir}/%{name}
-?package(%{name}): command="%{name}" icon="%{name}.png" needs="x11" title="DiskSearch" longtitle="Search removable media" section="System/File Tools" xdg="true"
-EOF
-
 mkdir -p $RPM_BUILD_ROOT%{_datadir}/applications
 cat > $RPM_BUILD_ROOT%{_datadir}/applications/mandriva-%{name}.desktop << EOF
 [Desktop Entry]
@@ -48,9 +42,8 @@ Exec=%{name}
 Icon=%{name}
 Terminal=false
 Type=Application
-Categories=System;Filesystem;X-MandrivaLinux-System-FileTools;
+Categories=System;Filesystem;
 EOF
-
 
 #icons
 mkdir -p $RPM_BUILD_ROOT/%_liconsdir
@@ -60,23 +53,32 @@ convert -size 32x32 resource/%name.png $RPM_BUILD_ROOT/%_iconsdir/%name.png
 mkdir -p $RPM_BUILD_ROOT/%_miconsdir
 convert -size 16x16 resource/%name.png $RPM_BUILD_ROOT/%_miconsdir/%name.png
 
+mkdir -p %{buildroot}%{_iconsdir}/hicolor/16x16/apps/
+convert -geometry 16x16 resource/%name.png %{buildroot}%{_iconsdir}/hicolor/16x16/apps/%{name}.png
+mkdir -p %{buildroot}%{_iconsdir}/hicolor/32x32/apps/
+convert -geometry 32x32 resource/%name.png %{buildroot}%{_iconsdir}/hicolor/32x32/apps/%{name}.png
+mkdir -p %{buildroot}%{_iconsdir}/hicolor/48x48/apps/
+convert -geometry 48x48 resource/%name.png %{buildroot}%{_iconsdir}/hicolor/48x48/apps/%{name}.png
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %post
 %update_menus
+%update_icon_cache hicolor
 		
 %postun
 %clean_menus
+%clean_icon_cache hicolor
 
 %files -f %name.lang
 %defattr(-,root,root)
 %doc docs/*
 %{_bindir}/%name
 %{_datadir}/%name
-%{_menudir}/%name
 %{_liconsdir}/%name.png
 %{_iconsdir}/%name.png
 %{_miconsdir}/%name.png
+%{_iconsdir}/hicolor/*/apps/*.png
 %{_datadir}/applications/mandriva-%name.desktop
 
