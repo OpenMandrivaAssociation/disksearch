@@ -10,6 +10,7 @@ Source:		http://prdownloads.sourceforge.net/disksearch/%{name}-%{version}.tar.bz
 URL:		http://disksearch.sourceforge.net/
 License:	GPL
 Group:		File tools
+BuildRoot:	%{_tmppath}/%{name}-buildroot
 BuildRequires:	ImageMagick
 Requires:	pygtk2.0-libglade
 BuildArch:	noarch
