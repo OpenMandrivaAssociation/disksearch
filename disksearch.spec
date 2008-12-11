@@ -11,7 +11,7 @@ URL:		http://disksearch.sourceforge.net/
 License:	GPL
 Group:		File tools
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
-BuildRequires:	ImageMagick
+BuildRequires:	imagemagick
 Requires:	pygtk2.0-libglade
 BuildArch:	noarch
 
