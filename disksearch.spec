@@ -4,7 +4,7 @@
 Name: 	 	%{name}
 Summary: 	Catalog and search tool for removable media
 Version: 	%{version}
-Release: 	%mkrel 3
+Release: 	%mkrel 4
 
 Source:		http://prdownloads.sourceforge.net/disksearch/%{name}-%{version}.tar.bz2
 URL:		http://disksearch.sourceforge.net/
