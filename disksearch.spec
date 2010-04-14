@@ -1,16 +1,12 @@
-%define name	disksearch
-%define version	1.2.1
-
-Name: 	 	%{name}
-Summary: 	Catalog and search tool for removable media
-Version: 	%{version}
-Release: 	%mkrel 4
-
+Name:		disksearch
+Summary:	Catalog and search tool for removable media
+Version:	1.2.1
+Release:	%mkrel 5
 Source:		http://prdownloads.sourceforge.net/disksearch/%{name}-%{version}.tar.bz2
 URL:		http://disksearch.sourceforge.net/
 License:	GPL
 Group:		File tools
-BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
+BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires:	imagemagick
 Requires:	pygtk2.0-libglade
 BuildArch:	noarch
@@ -25,6 +21,9 @@ database file which needs to be filled once by adding all your disks to it.
 %prep
 %setup -q
 perl -p -i -e 's|/usr/local|/usr||g' %name
+
+%build
+# for remove rpmlint's warning...
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -61,18 +60,6 @@ convert -geometry 48x48 resource/%name.png %{buildroot}%{_iconsdir}/hicolor/48x4
 
 %clean
 rm -rf $RPM_BUILD_ROOT
-
-%if %mdkversion < 200900
-%post
-%update_menus
-%update_icon_cache hicolor
-%endif
-		
-%if %mdkversion < 200900
-%postun
-%clean_menus
-%clean_icon_cache hicolor
-%endif
 
 %files -f %name.lang
 %defattr(-,root,root)
