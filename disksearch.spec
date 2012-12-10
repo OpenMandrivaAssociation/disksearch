@@ -72,3 +72,66 @@ rm -rf $RPM_BUILD_ROOT
 %{_iconsdir}/hicolor/*/apps/*.png
 %{_datadir}/applications/mandriva-%name.desktop
 
+
+
+%changelog
+* Sun Dec 05 2010 Oden Eriksson <oeriksson@mandriva.com> 1.2.1-6mdv2011.0
++ Revision: 610245
+- rebuild
+
+* Wed Apr 14 2010 Sandro Cazzaniga <kharec@mandriva.org> 1.2.1-5mdv2010.1
++ Revision: 534694
+- don't define name, version on top of spec.
+- fix mixed-use-of-spaces-and-tabs
+- remove %%post && %%postun
+- add a %%build section (that is empty) to fix rpmlint warning
+
+* Thu Sep 03 2009 Thierry Vignaud <tv@mandriva.org> 1.2.1-4mdv2010.0
++ Revision: 428279
+- rebuild
+
+  + Oden Eriksson <oeriksson@mandriva.com>
+    - lowercase ImageMagick
+
+* Thu Jul 24 2008 Thierry Vignaud <tv@mandriva.org> 1.2.1-3mdv2009.0
++ Revision: 244340
+- rebuild
+- fix no-buildroot-tag
+
+  + Pixel <pixel@mandriva.com>
+    - rpm filetriggers deprecates update_menus/update_scrollkeeper/update_mime_database/update_icon_cache/update_desktop_database/post_install_gconf_schemas
+
+* Thu Dec 27 2007 Austin Acton <austin@mandriva.org> 1.2.1-1mdv2008.1
++ Revision: 138669
+- sync
+- new version
+- drop buildroot def'n
+
+  + Olivier Blin <oblin@mandriva.com>
+    - restore BuildRoot
+
+  + Thierry Vignaud <tv@mandriva.org>
+    - kill re-definition of %%buildroot on Pixel's request
+    - kill desktop-file-validate's 'warning: key "Encoding" in group "Desktop Entry" is deprecated'
+
+* Sat Jul 21 2007 Funda Wang <fwang@mandriva.org> 1.2.0-1mdv2008.0
++ Revision: 54188
+- New version
+
+* Wed Jun 13 2007 Austin Acton <austin@mandriva.org> 1.1.3-1mdv2008.0
++ Revision: 38557
+- new version
+
+
+* Mon Sep 04 2006 Jerome Soyer <saispo@mandriva.org> 1.1.1-1mdv2007.0
+- New release 1.1.1
+- XDG Menu
+
+* Wed Aug 24 2005 Austin Acton <austin@mandriva.org> 1.1.0-1mdk
+- 1.1.0
+- source URL
+- translation files
+
+* Sat Nov 06 2004 Austin Acton <austin@mandrake.org> 0.9.1-1mdk
+- initial package
+
