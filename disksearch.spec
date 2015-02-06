@@ -1,7 +1,7 @@
 Name:		disksearch
 Summary:	Catalog and search tool for removable media
 Version:	1.2.1
-Release:	%mkrel 6
+Release:	7
 Source:		http://prdownloads.sourceforge.net/disksearch/%{name}-%{version}.tar.bz2
 URL:		http://disksearch.sourceforge.net/
 License:	GPL
