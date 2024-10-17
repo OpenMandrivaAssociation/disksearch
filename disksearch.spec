@@ -3,7 +3,7 @@ Summary:	Catalog and search tool for removable media
 Version:	1.2.1
 Release:	7
 Source:		http://prdownloads.sourceforge.net/disksearch/%{name}-%{version}.tar.bz2
-URL:		http://disksearch.sourceforge.net/
+URL:		https://disksearch.sourceforge.net/
 License:	GPL
 Group:		File tools
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
